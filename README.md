@@ -102,11 +102,8 @@ runCalculatorSandbox();
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Contributing
-Pull requests, issues, and feature requests are welcome! Please see our [contributing guidelines](https://github.com/ChatFinAI/javascript-vm/blob/main/CONTRIBUTING.md).
-
 ## Maintainers
-- ChatFinAI Open Source Team (<opensource@chatfinai.com>)
+- ChatFinAI Open Source Team (<support@chatfin.ai>)
 
 ## Support
-For questions or support, open an issue on GitHub or contact us at <opensource@chatfinai.com>.
+For questions or support, open an issue on GitHub or contact us at <support@chatfin.ai>.

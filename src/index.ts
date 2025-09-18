@@ -16,7 +16,7 @@ const calculatorCode = `
 `;
 
 async function runCalculatorSandbox() {
-  const sandbox = new ExecSandbox({}, false);
+  const sandbox = new ExecSandbox(false);
   try {
     const output = await sandbox.run(calculatorCode, {} as GenDictionary);
     console.log("Calculator Results:", output.result);

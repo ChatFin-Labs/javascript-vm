@@ -11,21 +11,18 @@ export class ExecSandbox {
     return this.engine.context;
   }
 
-  constructor(ctx: GenDictionary, debug = false, port = 3000) {
+  constructor(debug = false, port = 3000) {
     this.engine = new IsolateEngine();
     if (debug) this.inspector = new Inspector(this.engine.isolate, port);
-    this.baseInit(ctx, debug);
+    this.baseInit(debug);
   }
 
-  private baseInit(ctx: GenDictionary, debug: boolean): void {
+  private baseInit(debug: boolean): void {
     const sandbox = this.context.global;
     sandbox.setSync("global", sandbox.derefInto());
-    sandbox.setSync("_execCtxArgs", new IsolatedVM.ExternalCopy(ctx));
 
     const baseSetup = `
       const enableDebug = ${debug};
-      const execCtxArgs = _execCtxArgs.copy();
-      delete _execCtxArgs;
       function awaitDebugger() {
         if (!enableDebug) return;
         let startTime = Date.now();
@@ -60,7 +57,6 @@ export class ExecSandbox {
     function ${name}() {
       const args = Array.from(arguments);
       if(args.length === 0) args.push({});
-      args.push(execCtxArgs);
       const result = _main_${name}.applySyncPromise(undefined, args, {
         arguments: { copy: true },
       });
