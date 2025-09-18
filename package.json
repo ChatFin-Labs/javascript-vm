@@ -1,0 +1,37 @@
+{
+  "name": "javascript-vm",
+  "version": "1.0.0",
+  "description": "A secure, isolated JavaScript VM for Node.js, built with TypeScript. Open source project by ChatFinAI.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": ["javascript", "vm", "sandbox", "nodejs", "typescript", "isolated-vm", "open-source"],
+  "author": "ChatFinAI <opensource@chatfinai.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChatFinAI/javascript-vm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChatFinAI/javascript-vm/issues"
+  },
+  "homepage": "https://github.com/ChatFinAI/javascript-vm#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+  "dev": "ts-node src/index.ts",
+  "build": "tsc",
+  "type-check": "tsc --noEmit",
+  "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "isolated-vm": "^5.0.4",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/ws": "^8.5.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
