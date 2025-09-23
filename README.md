@@ -16,6 +16,13 @@ A secure, isolated JavaScript VM for Node.js, built with TypeScript. Developed a
 - npm >= 9
 
 ### Installation
+
+#### From npm (Recommended)
+```sh
+npm install @chatfinai/javascript-vm
+```
+
+#### From source
 Clone the repository and install dependencies:
 ```sh
 git clone https://github.com/ChatFinAI/javascript-vm.git
@@ -29,7 +36,7 @@ npm run build
 ```
 
 ### Development
-Run the sample calculator sandbox:
+Run the sample calculator example:
 ```sh
 npm run dev
 ```
@@ -61,10 +68,10 @@ npm run type-check
 ```
 
 ## Usage Example
-See `src/index.ts` for a sample usage:
+
+### TypeScript
 ```typescript
-import { ExecSandbox } from "./VM/Sandbox";
-import { GenDictionary } from "./Models/General";
+import { ExecSandbox, GenDictionary } from '@chatfinai/javascript-vm';
 
 const calculatorCode = `
   function add(a, b) { return a + b; }
@@ -80,7 +87,7 @@ const calculatorCode = `
 `;
 
 async function runCalculatorSandbox() {
-  const sandbox = new ExecSandbox({}, false);
+  const sandbox = new ExecSandbox(false);
   try {
     const output = await sandbox.run(calculatorCode, {} as GenDictionary);
     console.log("Calculator Results:", output.result);
@@ -94,10 +101,81 @@ async function runCalculatorSandbox() {
 runCalculatorSandbox();
 ```
 
+### JavaScript (CommonJS)
+```javascript
+const { ExecSandbox } = require('@chatfinai/javascript-vm');
+
+const calculatorCode = `
+  function add(a, b) { return a + b; }
+  function subtract(a, b) { return a - b; }
+  function multiply(a, b) { return a * b; }
+  function divide(a, b) { return a / b; }
+  result = {
+    add: add(5, 3),
+    subtract: subtract(5, 3),
+    multiply: multiply(5, 3),
+    divide: divide(5, 3)
+  };
+`;
+
+async function runCalculatorSandbox() {
+  const sandbox = new ExecSandbox(false);
+  try {
+    const output = await sandbox.run(calculatorCode, {});
+    console.log("Calculator Results:", output.result);
+  } catch (err) {
+    console.error("Sandbox error:", err);
+  } finally {
+    sandbox.dispose();
+  }
+}
+
+runCalculatorSandbox();
+```
+
 ## Project Structure
 - `src/VM/` — Core VM and sandbox classes
-- `src/Models/` — Type definitions
-- `src/index.ts` — Entry point and sample usage
+- `src/Models/` — Type definitions  
+- `src/index.ts` — Main exports for npm package
+- `examples/` — Calculator usage examples (JavaScript and TypeScript)
+
+## Examples
+
+The `examples/` directory contains calculator examples showing how to use the VM:
+
+- `calculator.js` — JavaScript (CommonJS) example
+- `calculator.ts` — TypeScript example with proper types
+
+### Running Examples
+
+#### If you installed from npm:
+```sh
+npm install @chatfinai/javascript-vm
+```
+
+Then update the import statements in the examples:
+- In `calculator.js`: Change `require('../dist/index.js')` to `require('@chatfinai/javascript-vm')`
+- In `calculator.ts`: Change `from '../src/index'` to `from '@chatfinai/javascript-vm'`
+
+```sh
+# Run JavaScript example
+node examples/calculator.js
+
+# Run TypeScript example
+npx ts-node examples/calculator.ts
+```
+
+#### If you're running from source:
+```sh
+# First, build the project
+npm run build
+
+# Run JavaScript example (uses dist/index.js)
+node examples/calculator.js
+
+# Run TypeScript example (uses src/index.ts)
+npx ts-node examples/calculator.ts
+```
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
