@@ -1,6 +1,6 @@
 {
   "name": "@chatfinai/javascript-vm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A secure, isolated JavaScript VM for Node.js, built with TypeScript. Open source project by ChatFinAI.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
