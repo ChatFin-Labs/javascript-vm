@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChatFinAI/javascript-vm.git"
+    "url": "git+https://github.com/ChatFinAI/javascript-vm.git"
   },
   "bugs": {
     "url": "https://github.com/ChatFinAI/javascript-vm/issues"
@@ -29,7 +29,8 @@
     "node": ">=18.0.0"
   },
   "files": [
-    "dist",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
     "README.md",
     "LICENSE"
   ],
