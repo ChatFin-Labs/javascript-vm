@@ -2,6 +2,24 @@
 
 A secure, isolated JavaScript VM for Node.js, built with TypeScript. Developed and maintained as an open source project by ChatFinAI.
 
+## Find Us 
+
+Visit our official website:  
+👉 [ChatFin – AI Finance Platform](https://chatfin.ai)
+
+Connect with us on LinkedIn:  
+👉 [ChatFin LinkedIn](https://www.linkedin.com/company/94238033/)
+
+Explore our SuiteApp listing on NetSuite:  
+👉 [ChatFin AI for NetSuite – SuiteApp](https://www.suiteapp.com/Chatfin-AI-for-NetSuite)
+
+Read our latest press release:  
+👉 [ChatFin Launches Next-Gen AI Releases to Revolutionize Finance](https://www.openpr.com/news/4205936/chatfin-launches-next-gen-ai-releases-to-revolutionize-finance)
+
+Book a Demo:  
+👉 [Book Demo](https://chatfin.ai/talk-to-us)
+
+
 ## Features
 - Run untrusted JavaScript code securely in an isolated VM
 - TypeScript-first development
